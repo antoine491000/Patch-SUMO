@@ -12,13 +12,13 @@ See https://sumo.dlr.de/docs/Tools/Net.html (netdiff section).
 
 ### Src
 
-- apply_patch.py : take diff files, networks B & C files .net.xml and return network C patched file .net.xml
+- `apply_patch.py` : take diff files, networks B & C files .net.xml and return network C patched file .net.xml
 
 ### Additionals
 
-- geoJSonToTAZ.py : take polygon file .geojson, return the taz file associated .taz.xml  
-- taz_to_net.py : take taz.xml file, return the network associated .net.xml  
-- netdiff.py : take a network A and a network B (network A modified) and return diff files  
+- `geoJSonToTAZ.py` : take polygon file .geojson, return the taz file associated .taz.xml  
+- `taz_to_net.py` : take taz.xml file, return the network associated .net.xml  
+- `netdiff.py` : take a network A and a network B (network A modified) and return diff files  
 
 # 
 
