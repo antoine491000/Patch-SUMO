@@ -1,2 +1,6 @@
 # Patch-SUMO
-Apply corrections from diff files of a network to a different network .net.xml 
+Apply corrections from diff files between networks A and B to a different network C.
+
+#Structure
+
+
