@@ -1,6 +1,6 @@
 # Patch-SUMO
 Apply corrections from diff files between networks A and B to a different network C.
 
-#Structure
+# Structure of the project
 
 
