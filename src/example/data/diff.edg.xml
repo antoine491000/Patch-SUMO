@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-07-07 13:18:15.247615 by netdiff.py v1_23_1+0000-676720d13f6
+<configuration>
+    <source value="sous_reseau.net.xml"/>
+    <dest value="sous_reseau_corrected.net.xml"/>
+    <outprefix value="diff"/>
+</configuration>
+-->
+
+<edges version="1.20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edgediff_file.xsd">
+    <!-- Deleted Elements -->
+    <delete id="939752208"/>
+    <!-- Created Elements -->
+    <!-- Changed Elements -->
+    <edge id="62018669#0" from="cluster773136484_773136485" shape="9697.34,6992.60 9693.06,6992.59 9686.35,6990.77 9678.28,6990.73 9672.18,6992.52 9662.47,6995.29"/>
+    <edge id="62018670#0" from="cluster773136484_773136485" shape="9692.10,6983.06 9691.43,6982.84 9684.41,6980.14 9681.43,6979.00 9672.11,6978.17"/>
+    <edge id="62018674#0" numLanes="2">
+        <lane index="1" >
+            <param key="origId" value="62018674"/>
+        </lane>
+    </edge>
+    <edge id="62019360#0" numLanes="1"/>
+    <edge id="939752209" shape="9709.17,7012.02 9697.34,6992.60" to="cluster773136484_773136485"/>
+</edges>

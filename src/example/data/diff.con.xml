@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-07-07 13:18:15.252609 by netdiff.py v1_23_1+0000-676720d13f6
+<configuration>
+    <source value="sous_reseau.net.xml"/>
+    <dest value="sous_reseau_corrected.net.xml"/>
+    <outprefix value="diff"/>
+</configuration>
+-->
+
+<connections version="1.20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+    <!-- Deleted Elements -->
+    <delete from="155472526#0" fromLane="0" to="62019354#0" toLane="1"/>
+    <delete from="236145787" fromLane="1" to="-236145787" toLane="1"/>
+    <delete from="4306783#0" fromLane="0" to="62019359#0" toLane="0"/>
+    <delete from="4306783#0" fromLane="1" to="62018674#0" toLane="0"/>
+    <delete from="4306783#0" fromLane="1" to="62017783#0" toLane="1"/>
+    <delete from="62018670#0" fromLane="0" to="4306783#2" toLane="0"/>
+    <delete from="62018670#0" fromLane="1" to="62018674#0" toLane="0"/>
+    <delete from="62018670#0" fromLane="2" to="62019359#0" toLane="1"/>
+    <delete from="62018674#0" fromLane="0" to="-236145787" toLane="1"/>
+    <delete from="62018674#0" fromLane="0" to="62019354#0" toLane="1"/>
+    <delete from="62019354#0" fromLane="1" to="62018674#0" toLane="0"/>
+    <delete from="62019360#0" fromLane="1" to="155472438" toLane="1"/>
+    <delete from="62020116#0" fromLane="1" to="62017785#0" toLane="2"/>
+    <delete from="675816099#0" fromLane="0" to="62019360#0" toLane="1"/>
+    <delete from="746182888#0" fromLane="0" to="62018674#0" toLane="0"/>
+    <delete from="746182888#0" fromLane="2" to="4306783#2" toLane="1"/>
+    <delete from="939752208" fromLane="0" to="62018670#0" toLane="0"/>
+    <delete from="939752208" fromLane="1" to="62018670#0" toLane="1"/>
+    <delete from="939752208" fromLane="1" to="62018670#0" toLane="2"/>
+    <delete from="939752209" fromLane="1" to="939752208" toLane="0"/>
+    <delete from="939752209" fromLane="2" to="939752208" toLane="1"/>
+    <!-- Created Elements -->
+    <connection from="4306783#0" fromLane="1" to="62018674#0" toLane="1" />
+    <connection from="62018670#0" fromLane="0" to="62018674#0" toLane="0" />
+    <connection from="62018670#0" fromLane="1" to="62018674#0" toLane="1" />
+    <connection from="62018674#0" fromLane="0" to="-236145787" toLane="0" />
+    <connection from="62018674#0" fromLane="1" to="-236145787" toLane="1" />
+    <connection from="62019360#0" fromLane="0" to="155472438" toLane="1" />
+    <connection from="62020116#0" />
+    <connection from="939752209" fromLane="1" to="62018670#0" toLane="0" />
+    <connection from="939752209" fromLane="2" to="62018670#0" toLane="1" />
+    <connection from="939752209" fromLane="2" to="62018670#0" toLane="2" />
+    <!-- Changed Elements -->
+    <connection from="62019354#0" fromLane="0" to="62019359#0" toLane="0" />  <!-- missingAttributes: disallow -->
+    <connection from="62019354#0" fromLane="1" to="4306783#2" toLane="1" />  <!-- missingAttributes: disallow -->
+    <connection from="746182888#0" fromLane="2" to="62019359#0" toLane="1" />  <!-- missingAttributes: disallow -->
+</connections>
