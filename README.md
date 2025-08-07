@@ -20,12 +20,25 @@ See https://sumo.dlr.de/docs/Tools/Net.html (netdiff section).
 - `taz_to_net.py` : take taz.xml file, return the network associated .net.xml  
 - `netdiff.py` : take a network A and a network B (network A modified) and return diff files  
 
-# 
+### Example
 
+- Use netdiff.py to have diff files between networkA and networkB (you can use the diff files provided)
 
+      python netdiff.py networkA.net.xml networkB.net.xml diff 
+  
+- Use apply_patch.py with diff files and networkB. A network of Brussels (networkC) is also needed, you can use the following command : osmconvert belgium.osm.pbf -b=4.30,50.79,4.55,50.92 -o=brussels.osm 
 
+      python apply_patch.py --patch networkC.net.xml --base networkB.net.xml --output networkC_patched.net.xml
 
+# Requirements
 
+- Python 3.7+
+- SUMO (Simulation of Urban Mobility) installed and accessible via the SUMO_HOME environment variable
+- Python dependencies (listed in Requirements.txt)
+
+# Licence
+
+This project is licensed under the MIT License.
 
 
 
