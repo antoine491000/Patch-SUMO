@@ -1,4 +1,4 @@
-# Patch-SUMO
+# Patch - SUMO
 
 Apply a set of XML diff files (`.nod`, `.edg`, `.con`, `.tll`) to sources files of a SUMO network file (`.nod`, `.edg`, `.con`, `.tll`).  
 
