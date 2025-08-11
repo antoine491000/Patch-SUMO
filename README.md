@@ -20,6 +20,12 @@ See https://sumo.dlr.de/docs/Tools/Net.html (netdiff section).
 - `taz_to_net.py` : take taz.xml file, return the network associated .net.xml  
 - `netdiff.py` : take a network A and a network B (network A modified) and return diff files (diff.nod.xml, diff.edg.xml, diff.con.xml, diff.tll.xml)
 
+### Demo
+
+- `README.md` : Explains how the example works
+- `apply_patch.py` : Patch script for the example
+- `/data` : Directory which contains data for the example
+
 # Requirements
 
 - Python 3.7+
