@@ -22,9 +22,9 @@ See https://sumo.dlr.de/docs/Tools/Net.html (netdiff section).
 
 ### Demo
 
-- `README.md` : Explains how the example works
-- `apply_patch.py` : Patch script for the example
-- `/data` : Directory which contains data for the example
+- `README.md` : explains how the example works
+- `apply_patch.py` : patch script for the example
+- `/data` : directory which contains data for the example
 
 # Requirements
 
