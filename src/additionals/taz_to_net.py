@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Extract a subnetwork from an original SUMO network based on TAZ edges.
 
@@ -111,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
