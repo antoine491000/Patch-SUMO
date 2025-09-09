@@ -22,8 +22,8 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
 1. **Clone the repository:**
 
 
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+`git clone https://github.com/yourusername/your-repo.git`
+`cd your-repo`
 
 2. **Place all required network files (input_network.*.xml, subnetwork.net.xml, subnetwork_corrected.net.xml) in the same folder as demo.py**
 3. **Run the demo script:**
