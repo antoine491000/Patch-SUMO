@@ -1,6 +1,6 @@
 # Demo PATCH - SUMO
 
-This repository contains scripts to automatically apply corrections to a SUMO network. By running `demo.py`, the process is fully automated: it converts plain network files, applies patches, and generates the final network.
+This repository contains scripts to automatically apply corrections to a SUMO network. By running `demo.py`, the process is fully automated: it converts source network files, applies patches, and generates the final network.
 
 ## Contents
 
