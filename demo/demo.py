@@ -12,9 +12,10 @@ args = [
 ]
 
 scripts = {
-    "apply_patch": ["subnetwork.net.xml", "subnetwork_corrected.net.xml", "input_network", "output_network"],
+    "apply_patch": ["subnetwork.net.xml", "subnetwork_corrected.net.xml", "input_network.net.xml", "output_network.net.xml"],
 }
 
 for script, params in scripts.items():
     subprocess.run(["python", script] + params)
+
 
