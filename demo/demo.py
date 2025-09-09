@@ -3,7 +3,8 @@ import os
 
 out_dir = "data"
 
-args = [
+
+netconvert_args = [
     "netconvert",
     "--node-files", os.path.join(out_dir, "input_network.nod.xml"),
     "--edge-files", os.path.join(out_dir, "input_network.edg.xml"),
@@ -11,12 +12,15 @@ args = [
     "-o", "input_network.net.xml"
 ]
 
-scripts = {
-    "apply_patch.py": ["subnetwork.net.xml", "subnetwork_corrected.net.xml", "input_network.net.xml", "output_network.net.xml"],
-}
-
-for script, params in scripts.items():
-    subprocess.run(["python", script] + params)
+subprocess.run(netconvert_args, check=True)
 
 
+apply_patch = [
+    "python", "apply_patch.py",
+    "-o", "output_network.net.xml",
+    "subnetwork.net.xml",
+    "subnetwork_corrected.net.xml",
+    "input_network.net.xml"
+]
 
+subprocess.run(apply_patch, check=True)
