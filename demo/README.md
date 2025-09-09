@@ -1,12 +1,46 @@
 # Demo PATCH - SUMO
 
-- Use netdiff.py to have diff files (diff.nod.xml, diff.edg.xml, diff.con.xml, diff.tll.xml) between network A and network B (you can use the diff files provided)
+This repository contains scripts to automatically apply corrections to a SUMO network. By running `demo.py`, the process is fully automated: it converts plain network files, applies patches, and generates the final network.
 
-      python netdiff.py networkA.net.xml networkB.net.xml diff 
-  
-- Use apply_patch.py with diff files (diff.nod.xml, diff.edg.xml, diff.con.xml) and source files of network C (C.nod.xml, C.edg.xml, C.con.xml).
-- If you want to generate your own source files, you first need to export the network C file using the following command (this one is for brussels, but you can change the coordinates and the pbf in input to the network you want)  : osmconvert belgium.osm.pbf -b=4.30,50.79,4.55,50.92 -o=brussels.osm ;
-- To separate network C into source files, you need to use the following command : netconvert -s networkC.net.xml --plain-output-prefix C
+## Contents
 
-      python apply_patch.py C.nod.xml C.edg.xml C.con.xml diff.nod.xml diff.edg.xml diff.con.xml -o C_patched.net.xml
-      
+- `demo.py` – Main script to run the full workflow.
+- `apply_patch.py` – Script to apply modifications (diffs) to a network.
+- `subnetwork.net.xml` – Original subnetwork file.
+- `subnetwork_corrected.net.xml` – Corrected version of the subnetwork.
+- `input_network.nod.xml`, `input_network.edg.xml`, `input_network.con.xml` – Plain network files.
+- Any other required SUMO files.
+
+## Prerequisites
+
+- Python 3.x installed.
+- SUMO installed and `netconvert` available in your PATH.
+- All input network files and subnetwork files are in the same folder as `demo.py`.
+
+## Usage
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+
+2. **Place all required network files (input_network.*.xml, subnetwork.net.xml, subnetwork_corrected.net.xml) in the same folder as demo.py**
+3. **Run the demo script:**
+python demo.py
+
+### The script will :
+
+- Convert the source network files (`input_network.nod.xml`, `input_network.edg.xml`, `input_network.con.xml`) into `input_network.net.xml` using SUMO’s `netconvert`.
+- Apply the patch from `subnetwork.net.xml` and `subnetwork_corrected.net.xml` using `apply_patch.py`.
+- Generate the final patched network as `output_network.net.xml`.
+
+### Output File
+
+- `output_network.net.xml` – The final patched network.
+
+### Notes
+
+- Ensure SUMO’s `netconvert` is in your system PATH so that Python can call it from `demo.py`.
+- Make sure Python scripts and XML files are in the same folder, or adjust the paths in `demo.py` accordingly.
+
