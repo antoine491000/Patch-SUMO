@@ -3,8 +3,6 @@ import os
 
 out_dir = "data"
 
-
-
 args = [
     "netconvert",
     "--node-files", os.path.join(out_dir, "input_network.nod.xml"),
@@ -19,3 +17,4 @@ scripts = {
 
 for script, params in scripts.items():
     subprocess.run(["python", script] + params)
+
