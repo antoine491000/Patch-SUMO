@@ -108,10 +108,17 @@ def apply_diff(source_file, diff_file, element_type):
                 if element_type == "edge":
                     clean_lanes(source_index[key])
 
-    # Save modified file
-    extension = source_file.suffix
-    name_parts = source_file.stem.split(".")
-    new_name = f"{name_parts[0]}_modified.{name_parts[1]}{extension}"
+    # Save modified file with correct extension
+    if element_type == "node":
+        suffix = ".nod.xml"
+    elif element_type == "edge":
+        suffix = ".edg.xml"
+    elif element_type == "connection":
+        suffix = ".con.xml"
+    else:
+        suffix = source_file.suffix
+
+    new_name = source_file.stem + "_modified" + suffix
     output_path = source_file.with_name(new_name)
     source_tree.write(output_path, encoding="utf-8", xml_declaration=True)
 
@@ -133,14 +140,15 @@ def main():
         "python",
         "netdiff.py",
         str(args.subnetwork),
-        str(args.subnetwork_corrected)
+        str(args.subnetwork_corrected),
+        "diff"
     ], check=True)
 
-    diff_node = Path("diff_nodes.xml")
-    diff_edge = Path("diff_edges.xml")
-    diff_con  = Path("diff_connections.xml")
+    diff_node = Path("diff.nod.xml")
+    diff_edge = Path("diff.edg.xml")
+    diff_con  = Path("diff.con.xml")
 
-    # Split input network into plain files
+    # Split input network into source files
     print("Splitting input_network into .nod, .edg, .con...")
     subprocess.run([
         "netconvert",
@@ -153,9 +161,9 @@ def main():
     con_file  = args.input_network.with_suffix(".con.xml")
 
     # Apply diffs
-    modified_node = apply_diff(node_file, diff_node, "node")
-    modified_edge = apply_diff(edge_file, diff_edge, "edge")
-    modified_con  = apply_diff(con_file, diff_con, "connection")
+    modified_node = apply_diff(node_file, diff_node, "node")      # crée input_network_modified.nod.xml
+    modified_edge = apply_diff(edge_file, diff_edge, "edge")      # crée input_network_modified.edg.xml
+    modified_con  = apply_diff(con_file, diff_con, "connection") # crée input_network_modified.con.xml
 
     # Run netconvert to generate final network
     print("Running netconvert...")
