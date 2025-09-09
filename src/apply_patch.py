@@ -121,21 +121,43 @@ def apply_diff(source_file, diff_file, element_type):
 
 def main():
     parser = argparse.ArgumentParser(description="Apply SUMO diffs and regenerate network.")
-    parser.add_argument("node_file", type=Path, help="Original .nod.xml file")
-    parser.add_argument("edge_file", type=Path, help="Original .edg.xml file")
-    parser.add_argument("con_file", type=Path, help="Original .con.xml file")
-    parser.add_argument("diff_node", type=Path, help="Diff file for nodes")
-    parser.add_argument("diff_edge", type=Path, help="Diff file for edges")
-    parser.add_argument("diff_con", type=Path, help="Diff file for connections")
+    parser.add_argument("subnetwork", type=Path, help="Original subnetwork .net.xml file")
+    parser.add_argument("subnetwork_corrected", type=Path, help="Corrected subnetwork .net.xml file")
+    parser.add_argument("input_network", type=Path, help="Input .net.xml network file to patch")
     parser.add_argument("-o", "--output", type=Path, required=True, help="Final .net.xml output file")
     args = parser.parse_args()
 
-    # Apply diffs
-    modified_node = apply_diff(args.node_file, args.diff_node, "node")
-    modified_edge = apply_diff(args.edge_file, args.diff_edge, "edge")
-    modified_con = apply_diff(args.con_file, args.diff_con, "connection")
+    # Run netdiff
+    print("Running netdiff.py...")
+    subprocess.run([
+        "python",
+        "netdiff.py",
+        str(args.subnetwork),
+        str(args.subnetwork_corrected)
+    ], check=True)
 
-    # Run netconvert
+    diff_node = Path("diff_nodes.xml")
+    diff_edge = Path("diff_edges.xml")
+    diff_con  = Path("diff_connections.xml")
+
+    # Split input network into plain files
+    print("Splitting input_network into .nod, .edg, .con...")
+    subprocess.run([
+        "netconvert",
+        "-s", str(args.input_network),
+        "--plain-output-prefix", str(args.input_network.stem)
+    ], check=True)
+
+    node_file = args.input_network.with_suffix(".nod.xml")
+    edge_file = args.input_network.with_suffix(".edg.xml")
+    con_file  = args.input_network.with_suffix(".con.xml")
+
+    # Apply diffs
+    modified_node = apply_diff(node_file, diff_node, "node")
+    modified_edge = apply_diff(edge_file, diff_edge, "edge")
+    modified_con  = apply_diff(con_file, diff_con, "connection")
+
+    # Run netconvert to generate final network
     print("Running netconvert...")
     subprocess.run([
         "netconvert",
@@ -144,6 +166,7 @@ def main():
         "--connection-files", str(modified_con),
         "-o", str(args.output)
     ], check=True)
+
     print(f"Network generated: {args.output}")
 
 
