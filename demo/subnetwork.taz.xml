@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-06-20 16:08:03.095503 by edgesInDistricts.py UNKNOWN
+  options: -n brussels.net.xml -t /tmp/tmpejlxhfwm.xml -o taz.taz.xml -s <doubleminus>complete
+-->
+
+<tazs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/taz_file.xsd">
+    <taz id="0" shape="9553.960727,7005.060151 9714.315698,7055.529299 9751.395883,6942.841057 9604.293945,6911.028858 9553.960727,7005.060151" color="51,128,255" edges="-236145787 -876140819 155472438 155472526#0 236145787 4306783#0 4306783#2 4306783#4 62017783#0 62017785#0 62018669#0 62018670#0 62018674#0 62019354#0 62019359#0 62019360#0 62020114#0 62020116#0 675816099#0 746182888#0 939752208 939752209 939752210"/>
+</tazs>
