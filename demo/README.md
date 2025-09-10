@@ -36,7 +36,7 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
      - Generate diff files (`diff.*.xml`) inside `.temp/`  
      - Split `input_network.net.xml` into source files inside `.temp/`  
      - Apply the diffs to produce patched source files (`*_modified.*.xml` in `.temp/`)  
-     - Rebuild the final patched network as **`output_network.net.xml`**  
+     - Rebuild the final patched network as `output_network.net.xml`  
     - If `subnetwork.taz.xml` exists:
      - Convert it into `subnetwork.poly.xml`  
      - Open **Netedit** with `output_network.net.xml` and the generated poly overlay  
