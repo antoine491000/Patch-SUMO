@@ -32,14 +32,14 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
 
 - Convert the plain input files into `input_network.net.xml`  
 - Run `apply_patch.py` to:
- - Compare `subnetwork.net.xml` and `subnetwork_corrected.net.xml` with **netdiff**  
- - Generate diff files (`diff.*.xml`) inside `.temp/`  
- - Split `input_network.net.xml` into plain files inside `.temp/`  
- - Apply the diffs to produce patched plain files (`*_modified.*.xml` in `.temp/`)  
- - Rebuild the final patched network as **`output_network.net.xml`**  
-- If `subnetwork.taz.xml` exists:
- - Convert it into `subnetwork.poly.xml`  
- - Open **Netedit** with `output_network.net.xml` and the generated poly overlay  
+     - Compare `subnetwork.net.xml` and `subnetwork_corrected.net.xml` with **netdiff**  
+     - Generate diff files (`diff.*.xml`) inside `.temp/`  
+     - Split `input_network.net.xml` into plain files inside `.temp/`  
+     - Apply the diffs to produce patched plain files (`*_modified.*.xml` in `.temp/`)  
+     - Rebuild the final patched network as **`output_network.net.xml`**  
+    - If `subnetwork.taz.xml` exists:
+     - Convert it into `subnetwork.poly.xml`  
+     - Open **Netedit** with `output_network.net.xml` and the generated poly overlay  
 
 ---
 
