@@ -13,7 +13,7 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
 
 ## Prerequisites
 
-- Python 3.x installed.
+- Python 3.9+ installed.
 - SUMO installed and `netconvert` available in your PATH.
 - All input network files and subnetwork files are in the same folder as `demo.py`.
 
@@ -30,16 +30,35 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
 
 ### The script will :
 
-- Convert the source network files (`input_network.nod.xml`, `input_network.edg.xml`, `input_network.con.xml`) into `input_network.net.xml` using SUMO’s `netconvert`.
-- Apply the patch from `subnetwork.net.xml` and `subnetwork_corrected.net.xml` using `apply_patch.py`.
-- Generate the final patched network as `output_network.net.xml`.
+- Convert the plain input files into `input_network.net.xml`  
+- Run `apply_patch.py` to:
+ - Compare `subnetwork.net.xml` and `subnetwork_corrected.net.xml` with **netdiff**  
+ - Generate diff files (`diff.*.xml`) inside `.temp/`  
+ - Split `input_network.net.xml` into plain files inside `.temp/`  
+ - Apply the diffs to produce patched plain files (`*_modified.*.xml` in `.temp/`)  
+ - Rebuild the final patched network as **`output_network.net.xml`**  
+- If `subnetwork.taz.xml` exists:
+ - Convert it into `subnetwork.poly.xml`  
+ - Open **Netedit** with `output_network.net.xml` and the generated poly overlay  
 
-### Output File
+---
 
-- `output_network.net.xml` – The final patched network.
+## Output Files
 
-### Notes
+- **`.temp/` folder**  
+  Contains all intermediate files:
+  - `diff.nod.xml`, `diff.edg.xml`, `diff.con.xml`  
+  - `input_network_modified.*.xml`  
+  - `subnetwork_plain.*.xml`, `subnetwork_corrected_plain.*.xml`
+  - 
+- **`output_network.net.xml`**  
+  Final patched network  
 
-- Ensure SUMO’s `netconvert` is in your system PATH so that Python can call it from `demo.py`.
-- Make sure Python scripts and XML files are in the same folder, or adjust the paths in `demo.py` accordingly.
+- **`subnetwork.poly.xml`** *(optional)*  
+  Generated if a `subnetwork.taz.xml` is present, used for visualization in Netedit  
 
+---
+
+## Notes
+
+- To clean up `.temp/` automatically after patching, run `apply_patch.py`_
