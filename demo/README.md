@@ -61,4 +61,6 @@ This repository contains scripts to automatically apply corrections to a SUMO ne
 
 ## Notes
 
-- To clean up `.temp/` automatically after patching, run `apply_patch.py`_
+- To clean up `.temp/` automatically after patching, run `apply_patch.py` with the `--clean` option (e.g. if calling it directly).  
+- If no `subnetwork.taz.xml` is found, the poly step is skipped.  
+- Always ensure your XML files are valid SUMO formats, otherwise `netconvert` will fail. 
